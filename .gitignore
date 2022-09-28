@@ -254,3 +254,4 @@ telegram_config
 *.csv
 *.ipynb
 *.txt
+*.p
