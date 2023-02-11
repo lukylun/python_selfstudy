@@ -1,22 +1,31 @@
-n, m = map(int, input().split())
-nums = list(map(int, input().split()))
+n = int(input())
+nums = [int(input()) for _ in range(n)]
+stack = [0]
+ans = ''
+idx = 0 
+for i in range(n):
+    if i == 0:
+        for j in range(1, nums[i]+1):
+            stack.append(j)
+            ans += '+'
+        stack.pop()       
+        ans += '-'
 
+    elif nums[i] > stack[-1]:
+        for j in range(nums[idx] + 1, nums[i] + 1):
+            stack.append(j)
+            ans += '+'
+        stack.pop()
+        idx = i
+        ans += '-'  
 
-# for i in range(m):
-#     total = 0 
-#     a, b = map(int, input().split())
-#     for j in range(a-1, b):
-#         total += nums[j]
-#     print(total)
+    elif nums[i] == stack[-1]:
+        stack.pop()
+        ans += '-'
 
-
-total_tmp = [0]
-total = 0
-for i in nums:
-    total += i
-    total_tmp.append(total)
-
-for i in range(m):
-    a, b = map(int, input().split())
-
-    print(total_tmp[b] - total_tmp[a-1])
+if stack == [0]:
+    for k in ans:
+        print(k)
+else:
+    print('NO')
+    
