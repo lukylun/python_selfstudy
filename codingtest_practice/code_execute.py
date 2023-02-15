@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 def backtracking(row, remain):
     
     # 1. 종료 조건
@@ -126,3 +127,8 @@ for tc in range(1, T + 1):
 # n = len(string)
 # postfix = get_postfix(string, n)
 # print(get_result(postfix))
+=======
+n = 5
+maze = [list(input()) for _ in range(n)]
+print(maze.find('2'))
+>>>>>>> 6243f2069bf08903dca6fe2e7c8a37f7478013af
