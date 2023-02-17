@@ -1,25 +1,12 @@
-n = int(input())
-postfix = input()
-nums = [int(input()) for _ in range(n)]
+N = int(input()) # 빌딩 수
+buildings = [int(input().rstrip()) for _ in range(N)]
 stack = []
-isp = {'+': 1, '-': 1, '*': 2, '/': 2}
-string = [chr(ord('A') + i) for i in range(n)]
-str_dict= dict(zip(string, nums))
-print(str_dict)
+ans = 0
 
-for d in postfix:
-    if "A" <= d <= "Z":
-        stack.append(str_dict[d])
-    else:
-        r = stack.pop()
-        l = stack.pop()
-
-        if d == '+':
-            stack.append(r + l)
-        elif d == '-':
-            stack.append(l - r)
-        elif d == '*':
-            stack.append(l * r)
-        else:
-            stack.append(l / r)
-print('{:.2f}'.format(stack.pop()))
+for building in buildings:
+    while stack and stack[-1] < building:
+        stack.pop()
+    stack.append(building)
+    ans += len(stack) - 1
+    
+print(ans)
