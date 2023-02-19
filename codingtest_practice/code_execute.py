@@ -1,17 +1,21 @@
-l_stack = list(input())
-r_stack = []
-N = int(input())
-
-for i in range(N):
-    string = input()
-    if string[0] == 'P':
-        string = string.split()
-        l_stack.append(string[-1])
-    elif string == 'L' and l_stack:
-        r_stack.append(l_stack.pop())
-    elif string == 'D' and r_stack:
-        l_stack.append(r_stack.pop())
-    elif string == 'B' and l_stack:
-        l_stack.pop()
-
-print(''.join(l_stack)+''.join(r_stack[::-1]))
+T = int(input())
+for tc in range(1, T + 1):
+    ans = 1
+    string = list(input())
+    stack = []
+    for s in string:
+        if s == "{" or s == "(":
+            stack.append(s)
+        elif s == "}" or s == ")":
+            if len(stack) == 0:
+                ans = 0
+                break
+            else:
+                a = stack.pop()
+                if not ((a == "{" and s == "}") or (a == "(" and s == ")")):
+                    ans = 0
+                    break
+    if len(stack) > 0:
+        ans = 0
+        
+    print(f'#{tc} {ans}')
