@@ -1,21 +1,23 @@
-T = int(input())
-for tc in range(1, T + 1):
-    ans = 1
-    string = list(input())
-    stack = []
-    for s in string:
-        if s == "{" or s == "(":
-            stack.append(s)
-        elif s == "}" or s == ")":
-            if len(stack) == 0:
-                ans = 0
-                break
-            else:
-                a = stack.pop()
-                if not ((a == "{" and s == "}") or (a == "(" and s == ")")):
-                    ans = 0
-                    break
-    if len(stack) > 0:
-        ans = 0
+for _ in range(10):
+    tc = int(input())
+    passwords = list(map(int, input().split()))
+    nums = [x for x in range(1, 6)]
+
+    front = 0
+    i = 0
+    while passwords[front] > 0:        
+        passwords[front] -= nums[i]
         
-    print(f'#{tc} {ans}')
+        if passwords[front] <= 0:
+            passwords[front] = 0
+            break
+        
+        # front, i 값을 1씩 증가
+        front = (front + 1) % 8
+        i = (i + 1) % 5
+    
+    # passwords의 0값의 index
+    idx = passwords.index(0)
+    print(f'{tc} {" ".join(map(str, passwords[idx + 1:]))} {" ".join(map(str,(passwords[:idx + 1])))}')
+
+    
