@@ -1,21 +1,33 @@
-import sys
 from collections import deque
 
-T = int(input())
-q = deque()
-
-for tc in range(T):
-    N, M = map(int, input().split())
-    lst = list(map(int, input().split()))
-    cnt = 0
-    while True:
-        for i in range(N):
-            if lst[i] < max(lst):
+def bfs(V):
+    q = deque()
+    q.append(V)
+    visited1[V] = 1
+    while q:
+        chr = q.popleft()
+        print(chr, end=" ")
+        for i in range(1, N + 1):
+            if not visited1[i] and adj[chr][i]:
                 q.append(i)
-            else:
-                chr = q.popleft()
-                if chr == M:
-                    print(cnt)
-                    break
-                else:                    
-                    cnt += 1
+                visited1[i] = 1
+
+def dfs(s):
+    visited2[s] = 1
+    print(s, end=" ")
+    for i in range(1, N + 1):
+        if not visited2[i] and adj[s][i]:
+            dfs(i)
+
+N, M, V = map(int, input().split())
+adj = [[0] * (N + 1) for _ in range(N + 1)]
+for i in range(M):
+    start, to = map(int, input().split())
+    adj[start][to] = 1
+    adj[to][start] = 1
+
+visited1 = [0] * (N + 1)
+visited2 = [0] * (N + 1)
+dfs(V)
+print()
+bfs(V)
