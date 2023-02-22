@@ -1,33 +1,32 @@
-from collections import deque
+N = int(input())
 
-def bfs(V):
-    q = deque()
-    q.append(V)
-    visited1[V] = 1
-    while q:
-        chr = q.popleft()
-        print(chr, end=" ")
-        for i in range(1, N + 1):
-            if not visited1[i] and adj[chr][i]:
-                q.append(i)
-                visited1[i] = 1
+tree = {}
 
-def dfs(s):
-    visited2[s] = 1
-    print(s, end=" ")
-    for i in range(1, N + 1):
-        if not visited2[i] and adj[s][i]:
-            dfs(i)
+for i in range(N):
+    root, left, right = input().split()
+    tree[root] = [left, right]
 
-N, M, V = map(int, input().split())
-adj = [[0] * (N + 1) for _ in range(N + 1)]
-for i in range(M):
-    start, to = map(int, input().split())
-    adj[start][to] = 1
-    adj[to][start] = 1
+def preorder(i):
+    if i != '.':
+        print(i, end="")
+        preorder(tree[i][0])
+        preorder(tree[i][1])
 
-visited1 = [0] * (N + 1)
-visited2 = [0] * (N + 1)
-dfs(V)
+def inorder(i):
+    if i != '.':
+        inorder(tree[i][0])
+        print(i, end="")
+        inorder(tree[i][1])
+
+def postorder(i):
+    if i != '.':
+        postorder(tree[i][0])
+        postorder(tree[i][1])
+        print(i, end="")
+
+preorder("A")
 print()
-bfs(V)
+inorder("A")
+print()
+postorder("A")
+print()
