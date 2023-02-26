@@ -1,58 +1,75 @@
-dr = [1, -1, 0, 0]
-dc = [0, 0, 1, -1]
+T = int(input())
+for tc in range(1, T + 1):
+    N = int(input())
+    omok = [list(input()) for _ in range(N)]
 
-from collections import deque
-N =  int(input())
-RGB = [list(input()) for _ in range(N)]
-q = deque()
-v = [[0] * N for _ in range(N)]
+    cnt = 0
+    ans = 0
+    for i in range(N):
+        for j in range(N):
+            if omok[i][j] == 'o':
+                cnt += 1
+                for k in range(1, N):
+                    if j + k < N and omok[i][j + k] == 'o':
+                        cnt += 1
+                        if cnt >= 5:
+                            ans = 1
+                            break
+                    elif j + k < N and omok[i][j + k] == '.':
+                        cnt = 0
 
-cnt_r = 0
-for i in range(N):
-    for j in range(N):
-        if not v[i][j]:
-            q.append((i, j))
-            v[i][j] = 1
-            color = RGB[i][j]
+                if cnt < 5:
+                    cnt = 0
 
-            while q:
-                r, c = q.popleft()
+    for i in range(N):
+        for j in range(N):
+            if omok[i][j] == 'o':
+                cnt += 1
+                for k in range(1, N):
+                    if i + k < N and omok[i + k][j] == 'o':
+                        cnt += 1
+                        if cnt >= 5:
+                            ans = 1
+                            break
+                    elif i + k < N and omok[i + k][j] == '.':
+                        cnt = 0
 
-                for d in range(4):
-                    nr = r + dr[d]
-                    nc = c + dc[d]
+                if cnt < 5:
+                    cnt = 0
 
-                    if 0 <= nr < N and 0 <= nc < N and\
-                         not v[nr][nc] and RGB[nr][nc] == color:
-                        v[nr][nc] = v[r][c]
-                        q.append((nr, nc))
-            cnt_r += 1
+    for i in range(N):
+        for j in range(N):
+            if omok[i][j] == 'o':
+                cnt += 1
+                for k in range(1, N):
+                    if i + k < N and j + k < N and omok[i + k][j + k] == 'o':
+                        cnt += 1
+                        if cnt >= 5:
+                            ans = 1
+                            break
+                    elif i + k < N and j + k < N and omok[i + k][j + k] == '.':
+                        cnt = 0
 
-for i in range(N):
-    for j in range(N):
-        if RGB[i][j] == "G":
-            RGB[i][j] = "R"
+                if cnt < 5:
+                    cnt = 0
 
-v_2 = [[0] * N for _ in range(N)]
+    for i in range(N):
+        for j in range(N):
+            if omok[i][j] == 'o':
+                cnt += 1
+                for k in range(1, N):
+                    if i + k < N and j - k < N and omok[i + k][j - k] == 'o':
+                        cnt += 1
+                        if cnt >= 5:
+                            ans = 1
+                            break
+                    elif i + k < N and j - k < N and omok[i + k][j - k] == '.':
+                        cnt = 0
 
-cnt_b = 0
-for i in range(N):
-    for j in range(N):
-        if not v_2[i][j]:
-            q.append((i, j))
-            v_2[i][j] = 1
-            color = RGB[i][j]
-            while q:
-                r, c = q.popleft()
+                if cnt < 5:
+                    cnt = 0
 
-                for d in range(4):
-                    nr = r + dr[d]
-                    nc = c + dc[d]
-
-                    if 0 <= nr < N and 0 <= nc < N and\
-                         not v_2[nr][nc] and RGB[nr][nc] == color:
-                        v_2[nr][nc] = v_2[r][c]
-                        q.append((nr, nc))
-
-            cnt_b += 1
-print(cnt_r, cnt_b)
+    if ans == 0:
+        print(f'#{tc} NO')
+    else:
+        print(f'#{tc} YES')
