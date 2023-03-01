@@ -1,75 +1,32 @@
 T = int(input())
-for tc in range(1, T + 1):
+
+for tc in range(1, T+1):
     N = int(input())
-    omok = [list(input()) for _ in range(N)]
+    maps = [list(map(int, input().split())) for _ in range(N)]
+    vector = 1e11
+    if N != 2:
+        for i in range(N):
+            for j in range(i+1, N):
+                for k in range(j+1, N):
+                    for l in range(k+1, N):
+                        # if i != j and i != k and i != l and j != k and j != l and k != l:
+                        a, b = maps[i]
+                        c, d = maps[j]
+                        e, f = maps[k]
+                        g, h = maps[l]
+                        x = (a - c) + (e - g)
+                        y = (b - d) + (f - h)
+                        vec = x ** 2 + y ** 2
+                        vector = min(vector, vec)
+    elif N == 2:
+        for i in range(N):
+            for j in range(N):
+                if i != j:
+                    a, b = maps[i]
+                    c, d = maps[j]
+                    x = a - c
+                    y = b - d
+                    vec = x ** 2 + y ** 2
+                    vector = min(vector, vec)
 
-    cnt = 0
-    ans = 0
-    for i in range(N):
-        for j in range(N):
-            if omok[i][j] == 'o':
-                cnt += 1
-                for k in range(1, N):
-                    if j + k < N and omok[i][j + k] == 'o':
-                        cnt += 1
-                        if cnt >= 5:
-                            ans = 1
-                            break
-                    elif j + k < N and omok[i][j + k] == '.':
-                        cnt = 0
-
-                if cnt < 5:
-                    cnt = 0
-
-    for i in range(N):
-        for j in range(N):
-            if omok[i][j] == 'o':
-                cnt += 1
-                for k in range(1, N):
-                    if i + k < N and omok[i + k][j] == 'o':
-                        cnt += 1
-                        if cnt >= 5:
-                            ans = 1
-                            break
-                    elif i + k < N and omok[i + k][j] == '.':
-                        cnt = 0
-
-                if cnt < 5:
-                    cnt = 0
-
-    for i in range(N):
-        for j in range(N):
-            if omok[i][j] == 'o':
-                cnt += 1
-                for k in range(1, N):
-                    if i + k < N and j + k < N and omok[i + k][j + k] == 'o':
-                        cnt += 1
-                        if cnt >= 5:
-                            ans = 1
-                            break
-                    elif i + k < N and j + k < N and omok[i + k][j + k] == '.':
-                        cnt = 0
-
-                if cnt < 5:
-                    cnt = 0
-
-    for i in range(N):
-        for j in range(N):
-            if omok[i][j] == 'o':
-                cnt += 1
-                for k in range(1, N):
-                    if i + k < N and j - k < N and omok[i + k][j - k] == 'o':
-                        cnt += 1
-                        if cnt >= 5:
-                            ans = 1
-                            break
-                    elif i + k < N and j - k < N and omok[i + k][j - k] == '.':
-                        cnt = 0
-
-                if cnt < 5:
-                    cnt = 0
-
-    if ans == 0:
-        print(f'#{tc} NO')
-    else:
-        print(f'#{tc} YES')
+    print(f'#{tc} {vector}')
