@@ -18,8 +18,8 @@ for i in range(max_idx + 1):
     elif height[i] >= h:
         h = height[i]
         ans += h
+        
 l = 0
-max_l = 0
 for i in range(1000, max_idx, -1):
     if height[i] < l:
         ans += l
