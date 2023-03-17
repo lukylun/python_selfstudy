@@ -1,9 +1,14 @@
 N, M = map(int, input().split())
+s = []
+def dfs():
+    if len(s) == M:
+        print(' '.join(map(str, s)))
+        # print(s)
+        return
 
-ans = 1
-cnt = 1
-for i in range(N, N - M, -1):
-    ans *= i
-    ans //= (N + 1 - i)
-
-print(ans)
+    for i in range(1, N+1):
+        if len(s) == 0 or s[-1] <= i:
+            s.append(i)
+            dfs()
+            s.pop()
+dfs()
