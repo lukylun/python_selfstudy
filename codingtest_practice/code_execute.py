@@ -1,14 +1,23 @@
-N, M = map(int, input().split())
-s = []
-def dfs():
-    if len(s) == M:
-        print(' '.join(map(str, s)))
-        # print(s)
-        return
+# N, M = map(int, input().split())
+# lst = sorted(list(map(int, input().split())))
+# ans = set()
+# s = []
+# def dfs():
+#     if len(s) == M:
+#         ans.add(' '.join(map(str, s)))
+#         return
+#
+#     for i in lst:
+#         if lst.count(i) > s.count(i):
+#             s.append(i)
+#             dfs()
+#             s.pop()
+# dfs()
+# ans = list(ans)
+# for i in range(len(ans)):
+#     ans[i] = list(map(int, ans[i].split()))
+#
+# ans = sorted(ans)
+# for i in ans:
+#     print(' '.join(map(str, i)))
 
-    for i in range(1, N+1):
-        if len(s) == 0 or s[-1] <= i:
-            s.append(i)
-            dfs()
-            s.pop()
-dfs()
