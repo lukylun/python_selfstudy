@@ -1,8 +1,2 @@
-from collections import deque
-
-q = deque()
-
-q.append('a')
-q.append('b')
-
-print(q)
+num = 1
+print(num.is)
