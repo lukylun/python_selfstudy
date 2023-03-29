@@ -49,7 +49,7 @@ for i in range(N):
         # cnt 초기화
         cnt = 0
 
-# print(stack)
+print(stack)
 n = 0
 # 스택에 숫자 뿐 아니라 여는 괄호, 닫는 괄호가 있을 수 있음
 for i in range(len(stack)):
