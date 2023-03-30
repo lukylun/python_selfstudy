@@ -9,20 +9,18 @@ for i in range(N):
         y = int(lst[1])
         if x == 'a':
             stack.append(y)
-            t_stack.append(stack[:])
+
         elif x == 't':
-            stack = t_stack[y-1]
-            t_stack.append(stack[:])
-        if stack:
-            print(stack[-1])
-        else:
-            print(-1)
+            stack = t_stack[y-1][:]
+
     else:
         if stack:
             stack.pop()
-        if stack:
-            print(stack[-1])
-            t_stack.append(stack[:])
-        else:
-            print(-1)
-            t_stack.append(stack[:])
+    if stack:
+        print(stack[-1])
+        t_stack.append(stack[:])
+    else:
+        print(-1)
+        t_stack.append(stack[:])
+print(stack)
+print(t_stack)
