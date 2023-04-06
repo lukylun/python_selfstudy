@@ -5,6 +5,7 @@ def bfs():
     global ans, escape
     while q_J:
         ans += 1
+        # 불의 이동
         for _ in range(len(q_F)):
             fr, fc = q_F.popleft()
             for dr, dc in d:
@@ -13,6 +14,7 @@ def bfs():
                 if 0 <= nfr < R and 0 <= nfc < C and arr[nfr][nfc] != '#' and arr[nfr][nfc] != "F":
                     arr[nfr][nfc] = "F"
                     q_F.append((nfr, nfc))
+        # 지훈이 이동
         for _ in range(len(q_J)):
             r, c = q_J.popleft()
             for dr, dc in d:
@@ -41,6 +43,7 @@ q_J = deque()
 q_F = deque()
 
 ans = 0
+# 탈출
 escape = 0
 for i in range(R):
     for j in range(C):

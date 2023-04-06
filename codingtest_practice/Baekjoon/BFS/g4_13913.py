@@ -1,4 +1,4 @@
-from collections import deque
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             0from collections import deque
 N, M = map(int, input().split())
 q = deque()
 q.append(N)
