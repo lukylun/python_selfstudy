@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a44b02dc-c9c9-4036-88a0-bdfa4fc59e3b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BFS/G4_4179.py" beforeDir="false" afterPath="$PROJECT_DIR$/BFS/G4_4179.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/silver_2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/silver_2.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BFS/G1_1194.py" beforeDir="false" afterPath="$PROJECT_DIR$/BFS/G1_1194.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Queue/G2_1202.py" beforeDir="false" afterPath="$PROJECT_DIR$/Queue1/G2_1202.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Queue/G3_13904.py" beforeDir="false" afterPath="$PROJECT_DIR$/Queue1/G3_13904.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gold.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/gold.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +33,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.S1_12852">
+  <component name="RunManager" selected="Python.G4_14502">
     <configuration name="G1_1194" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Baekjoon" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -95,7 +97,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="G5_15686" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="G4_14502" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Baekjoon" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -103,11 +105,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/brute_force" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/BFS" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/brute_force/G5_15686.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BFS/G4_14502.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -139,11 +141,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.G4_14502" />
         <item itemvalue="Python.S1_12852" />
         <item itemvalue="Python.G1_1194" />
         <item itemvalue="Python.G2_1202" />
         <item itemvalue="Python.G3_13904" />
-        <item itemvalue="Python.G5_15686" />
       </list>
     </recent_temporary>
   </component>
