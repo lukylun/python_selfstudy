@@ -6,9 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="a44b02dc-c9c9-4036-88a0-bdfa4fc59e3b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/BFS/G4_4179.py" beforeDir="false" afterPath="$PROJECT_DIR$/BFS/G4_4179.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BFS/g4_13913.py" beforeDir="false" afterPath="$PROJECT_DIR$/BFS/g4_13913.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gready/16496.py" beforeDir="false" afterPath="$PROJECT_DIR$/Gready/P5_16496.py" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/BFS/G1_1194.py" beforeDir="false" afterPath="$PROJECT_DIR$/BFS/G1_1194.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Queue/G2_1202.py" beforeDir="false" afterPath="$PROJECT_DIR$/Queue1/G2_1202.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Queue/G3_13904.py" beforeDir="false" afterPath="$PROJECT_DIR$/Queue1/G3_13904.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gold.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/gold.ipynb" afterDir="false" />
+>>>>>>> 0054bedb014645998b274cb0a4cd566b2bc9b05c
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +40,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
@@ -40,6 +48,14 @@
   }
 }</component>
   <component name="RunManager" selected="Python.P4_1422">
+=======
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager" selected="Python.G4_14502">
+>>>>>>> 0054bedb014645998b274cb0a4cd566b2bc9b05c
     <configuration name="G1_1194" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Baekjoon" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -103,7 +119,11 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+<<<<<<< HEAD
     <configuration name="P4_1422" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+=======
+    <configuration name="G4_14502" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+>>>>>>> 0054bedb014645998b274cb0a4cd566b2bc9b05c
       <module name="Baekjoon" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -111,11 +131,19 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
+<<<<<<< HEAD
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Gready" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Gready/P4_1422.py" />
+=======
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/BFS" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BFS/G4_14502.py" />
+>>>>>>> 0054bedb014645998b274cb0a4cd566b2bc9b05c
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -147,11 +175,19 @@
     </configuration>
     <recent_temporary>
       <list>
+<<<<<<< HEAD
         <item itemvalue="Python.P4_1422" />
         <item itemvalue="Python.G2_10775" />
         <item itemvalue="Python.G2_9576" />
         <item itemvalue="Python.S1_12852" />
         <item itemvalue="Python.G1_1194" />
+=======
+        <item itemvalue="Python.G4_14502" />
+        <item itemvalue="Python.S1_12852" />
+        <item itemvalue="Python.G1_1194" />
+        <item itemvalue="Python.G2_1202" />
+        <item itemvalue="Python.G3_13904" />
+>>>>>>> 0054bedb014645998b274cb0a4cd566b2bc9b05c
       </list>
     </recent_temporary>
   </component>

@@ -20,40 +20,34 @@ for _ in range(N):
     mazes.append(lst)
 
 q = deque()
-q.append((r, c, keys))
+q.append((r, c, '0'))
 v = [[0] * M for _ in range(N)]
 cnt = 0
 result = 0
+
 while q:
-    r, c = q.popleft()
+    r, c, k = q.popleft()
+    k = int(k, 2)
     for d in range(4):
         nr = r + dr[d]
         nc = c + dc[d]
-        if 0 <= nr < N and 0 <= nc < M:
-            if not v[nr][nc] and mazes[nr][nc] == '.' or mazes[nr][nc] == '0':
-                q.append((nr, nc))
-                v[nr][nc] = v[r][c] + 1
+        if 0<=nr<N and 0<=nc<M:
+            if not v[nr][nc][k] and mazes[nr][nc] == '.':
+                v[nr][nc][k] = 1
+                q.append((nr, nc, str(bin(k)[2:])))
+            if not v[nr][nc][k] and mazes[nr][nc] in keys:
+                v[nr][nc][k] = 1
+                num = ord('a') - ord(mazes[nr][nc])
+                k = '000000'
+                k[num] = '1'
+                q.append((nr, nc, k))
+            if not v[nr][nc][k] and mazes[nr][nc] in doors:
+                v[nr][nc][k] = 1
+                k = str(bin(k)[2:])
+                if k[ord('A') - ord(mazes[nr][nc])] == '1':
+                    q.append((nr, nc, k))
 
-            elif not v[nr][nc] and mazes[nr][nc] in keys:
-                q.append((nr, nc))
-                get_key.append(mazes[nr][nc])
-                mazes[nr][nc] = '.'
-                cnt += v[r][c] + 1
-                v = [[0] * M for _ in range(N)]
-                v[nr][nc] = cnt
 
-            elif not v[nr][nc] and mazes[nr][nc] in doors and mazes[nr][nc].lower() in get_key:
-                q.append((nr, nc))
-                v[nr][nc] = v[r][c] + 1
 
-            elif mazes[nr][nc] == '1':
-                result = 1
-                cnt += v[r][c]
-                break
 
-    if result == 1:
-        break
-    # cnt += 1
-print(v)
-print(cnt)
 
