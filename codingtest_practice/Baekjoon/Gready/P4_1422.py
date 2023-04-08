@@ -25,13 +25,18 @@ for i in range(K-1):
             num = lst[j]
     lst[i], lst[idx] = lst[idx], lst[i]
 
-N -= len(lst)
-nums = ''.join(lst)
-lst.sort(key=lambda x:(len(x), x), reverse=True)
+N -= K
+nums = []
+sort_lst = sorted(lst, key=lambda x:(len(x), x), reverse=True)
+result = 0
 if N:
-    if int(nums+lst[0]) < int(lst[0] + nums):
-        nums = (lst[0] * N) + nums
-    else:
-        nums += (lst[0] * N)
-
-print(nums)
+    for l in range(K):
+        if lst[l] == sort_lst[0] and result == 0:
+            nums.append(sort_lst[0] * (N+1))
+            result = 1
+        else:
+            nums.append(str(lst[l]))
+    print(''.join(nums))
+else:
+    nums = ''.join(lst)
+    print(nums)
