@@ -23,8 +23,8 @@ def facility(arr):
     v = [[0] * N for _ in range(N)]
     maps = [[0] * N for _ in range(N)]
     for r, c in virus:
-        maps[r][c] = '*'
-        v[r][c] = '*'
+        maps[r][c] = 2
+        v[r][c] = -1
 
     for r, c in walls:
         maps[r][c] = 1
@@ -33,28 +33,32 @@ def facility(arr):
         maps[r][c] = 2
         v[r][c] = 1
     # print(maps)
+    res = 0
     while q:
         r, c = q.popleft()
         for d in range(4):
             nr = r + dr[d]
             nc = c + dc[d]
-            if 0 <= nr < N and 0 <= nc < N and not v[nr][nc] and not maps[nr][nc]:
-                q.append((nr, nc))
-                v[nr][nc] = v[r][c] + 1
-                maps[nr][nc] = 2
+            if 0 <= nr < N and 0 <= nc < N:
+                if not v[nr][nc] and not maps[nr][nc]:
+                    q.append((nr, nc))
+                    v[nr][nc] = v[r][c] + 1
+                    maps[nr][nc] = 2
+                    res = max(res, v[nr][nc])
+                elif v[nr][nc] == -1 and maps[nr][nc] == 2:
+                    q.append((nr, nc))
+                    v[nr][nc] = v[r][c] + 1
 
-    total = 0
     fail = 0
     for i in range(N):
         if 0 in maps[i]:
             fail = 1
-        elif fail != 1:
-            total = max(total, max(v[i]))
+
     if fail == 1:
         ans.add(-1)
         return
     else:
-        minV = min(total, minV)
+        minV = min(res, minV)
         ans.add(minV)
         return
 
@@ -77,6 +81,8 @@ for i in range(len(comb_list)):
 
 if len(ans) == 1 and -1 in ans:
     print(-1)
+elif 0 in ans:
+    print(0)
 elif -1 in ans:
     ans.remove(-1)
     print(min(ans)-1)
