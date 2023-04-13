@@ -1,23 +1,49 @@
-def solution(M, S, D):
-    answer = 0
-    maps = [[0] * len(M[0]) for _ in range(len(M))]
-    maps[S[1]][S[0]] = 1
+def dfs(start, adj):
+    stack = [(start)]
+    visited = [0] * (N + 1)
+    visited[start] = 1
 
-    for i in range(len(M)):
-        for j in range(len(M[0])):
-            if i == 0 and j == 0:
-                continue
-            if M[i][j] == 1:
-                maps[i][j] = 0
-            else:
-                maps[i][j] += maps[i - 1][j] + maps[i][j - 1]
+    while stack:
+        n = stack.pop()
+        print(n, end=' ')
 
-    answer = maps[D[1]][D[0]]
-    print(maps)
-    return answer
+        for i in adj[n]:
+            if visited[i] == 0:
+                stack.append(i)
+                visited[i] = 1
+                break
 
-M = [[0,0,1,0,0,0,0,0],[0,0,0,1,0,1,0,0],[0,0,0,1,0,1,0,0],[0,1,1,0,0,1,0,0],[0,0,0,1,0,0,1,0],[0,0,0,0,0,0,0,1]]
-S = [0, 0]
-D = [6, 3]
+def bfs(start, adj):
+    q = [(start)]
+    visited = [0] * (N + 1)
+    visited[start] = 1
 
-print(solution(M, S, D))
+    while q:
+        n = q.pop(0)
+        print(n, end=' ')
+
+        for i in adj[n]:
+            if visited[i] == 0:
+                q.append(i)
+                visited[i] = 1
+
+
+# N: 정점 개수, M: 간선 개수, V: 탐색 시작할 정점 번호
+N, M, V = map(int, input().split())
+# 인접 리스트
+adj = [[] for _ in range(N + 1)]
+
+for _ in range(M):
+    s, e = map(int, input().split())
+    # 양방향
+    adj[s].append(e)
+    adj[e].append(s)
+
+# 정점 여러 개인 경우, 정점 번호 작은 것부터 방문
+# 인접 리스트 내 정점들 정렬
+for s in adj:
+    s.sort()
+
+dfs(V, adj)
+print()
+bfs(V, adj)
