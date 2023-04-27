@@ -9,23 +9,14 @@ N, K = map(int, input().split())
 lst = list(map(int, input().split()))
 
 ans = set()
-num_dict = {}
-
-for i in lst:
-    if i in num_dict:
-        num_dict[i] += 1
-    else:
-        num_dict[i] = 1
-
 cnt = 0
-for i in lst:
-    ans.add(i)
-    num_dict[i] -= 1
-    if len(ans) > N:
-        for j in lst:
-            if num_dict[i] == 0 and i in ans:
-                ans.remove(i)
-                break
-        else:
-            ans.remove
-        cnt += 1
+idx = 0
+result = 0
+for i in range(K):
+    if len(ans) != N:
+        ans.add(lst[i])
+    elif len(ans) == N:
+        idx = i
+        break
+
+print(cnt)
