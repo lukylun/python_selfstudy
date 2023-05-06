@@ -13,23 +13,24 @@ for gender, num in students:
                 else:
                     switches[i] = 0
     elif gender == 2:
-        for i in range(num):
+        for i in range(N//2 + 1):
             if i == 0 and switches[num] == 0:
                 switches[num] = 1
             elif i == 0 and switches[num] == 1:
                 switches[num] = 0
-            elif i != 0 and num-i >= 0 and (num+i) <= (N-1) and switches[num-i] == switches[num+i]:
-                if switches[num-i] == 0:
-                    switches[num-i] = switches[num+i] = 1
-                else:
+            elif i != 0 and num-i >= 1 and num + i <= N and switches[num-i] == switches[num+i]: 
+                if switches[num-i] == 1:
                     switches[num-i] = switches[num+i] = 0
-            else:
-                break
+                else:
+                    switches[num-i] = switches[num+i] = 1 
+                
+switches = switches[1:]
+divide = N//20
 
-share = (N+1)// 20
-rest = (N+1) % 20
-for i in range(share):
-    print(switches[(i*20+1): ((i+1)*20+1)])
-
-if rest != 0:
-    print(switches[(20*share + 1):])
+if divide > 0:
+    for i in range(divide):
+        print(*switches[i*20: (i+1)*20])
+    print(*switches[divide*20:])
+else: 
+    print(*switches)
+    
