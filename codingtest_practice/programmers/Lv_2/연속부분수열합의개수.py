@@ -8,7 +8,7 @@ def solution(elements):
         for i in range(len(elements)):
             if i <= len(elements) - p:
                 cnt = sum(elements[i:i+p])
-                temps.add(cnt)
+                temps .add(cnt)
             else:
                 cnt = sum(elements[i:]) + sum(elements[:(p-len(elements)+i)])
                 temp.add(cnt)
