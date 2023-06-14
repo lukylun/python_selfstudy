@@ -1,15 +1,17 @@
-def solution(number, limit, power):
-    ans = []
-    for i in range(1, number + 1):
-        cnt = []
-        for j in range(1, int(i ** 0.5) + 1):
-            if i % j == 0:
-                cnt.append(j)
-            if i % j == 0 and i // j not in cnt:
-                cnt.append(i // j)
-        if len(cnt) > limit:
-            ans.append(power)
-        else:
-            ans.append(len(cnt))
+isp = {'+': 1, '-': 1, '*': 2, '/': 2, '(': 0}
+icp = {'+': 1, '-': 1, '*': 2, '/': 2, '(': 3}
 
-    return sum(ans)
+s = list(input())
+stack = []
+postfix = ''
+for i in s:
+    if "A" <= i <= "Z":
+        postfix += i
+    else:
+        while stack:
+            chr = stack.pop()
+            if chr != '(':
+                postfix += chr
+            else:
+                break
+        if stack and isp[stack[-1]] <= icp[i]:
