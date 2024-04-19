@@ -109,7 +109,7 @@ cheeze = []
 cnt = 0
 
 for i in range(N):
-    lst = list(map(int, sys.stdin.readline().split()))
+    lst = list(map(int, sys.stdin.readline().strip()))
     cnt += sum(lst)
     cheeze.append(lst)
     
