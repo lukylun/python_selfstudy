@@ -16,12 +16,10 @@ def solution(citations):
     #     if cnt >= i and len(citations) - cnt <= i:
     #         answer = i
     #         break
-    
+
     # 간단한 풀이
     citations.sort(reverse=True)
     answer = max(map(min, enumerate(citations, start=1)))
     return answer
-
-
 
 print(solution([5,6,7]))
