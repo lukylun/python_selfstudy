@@ -14,8 +14,32 @@
 """
 
 def solution(friends, gifts):
-    answer = 0
-    return answer
+    gift_record = [[0] * len(friends) for _ in range(len(friends))]
+    gift_index = [0] * len(friends)
+    most_gift = [0] * len(friends)
+
+    for gift in gifts:
+        A, B = gift.split(" ")
+        gift_record[friends.index(A)][friends.index(B)] += 1
+
+    for idx in range(len(friends)):
+        gift_index[idx] += sum(gift_record[idx])
+        for col in range(len(friends)):
+            gift_index[idx] -= gift_record[col][idx]
+
+    for i in range(len(friends)-1):
+        for j in range(i+1, len(friends)):
+            if gift_record[i][j] > gift_record[j][i]:
+                most_gift[i] += 1
+            elif gift_record[i][j] == gift_record[j][i]:
+                if gift_index[i] > gift_index[j]:
+                    most_gift[i] += 1
+                elif gift_index[i] < gift_index[j]:
+                    most_gift[j] += 1
+            else:
+                most_gift[j] += 1
+
+    return max(most_gift)
 
 print(solution(["muzi", "ryan", "frodo", "neo"], ["muzi frodo", "muzi frodo", "ryan muzi", "ryan muzi", "ryan muzi", "frodo muzi", "frodo ryan", "neo muzi"]))
 print(solution(["joy", "brad", "alessandro", "conan", "david"], ["alessandro brad", "alessandro joy", "alessandro conan", "david alessandro", "alessandro david"]))

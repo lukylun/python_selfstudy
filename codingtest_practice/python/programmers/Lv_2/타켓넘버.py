@@ -31,7 +31,6 @@ def solution(numbers, target):
         elif idx == len(numbers) and ttl == target:
             cnt += 1
 
-        print(idx-1)
         q.append((ttl + numbers[idx-1], idx + 1))
         q.append((ttl - numbers[idx-1], idx + 1))
 
