@@ -1,45 +1,42 @@
 import pprint
-from collections import deque
 import sys
 # 북동남서
 dr = [(-1, 0), (0, 1), (1, 0), (0, -1)]
+di = [-1, 0, 1, 0]
+dj = [0, 1, 0, -1]
 
-def bfs(s, e, d):
-    cnt = 1
-    q = deque()
-    q.append((s, e, d))
-    v[s][e] = 1
+def bfs(r, c, direct):
+    cnt = 0
 
-    while q:
-        r, c, direct = q.popleft()
-        nr = r + dr[direct][0]
-        nc = c + dr[direct][1]
+    while 1:
+        chk = 1
+        rooms[r][c] = 2
+        cnt += 1
 
-        if 0 <= nr < N and 0 <= nc < M and not v[nr][nc] and not rooms[nr][nc]:
-            q.append((nr, nc, direct))
-            v[nr][nc] = 1
-            rooms[nr][nc] = 1
-            cnt += 1
-        elif 0 <= nr < N and 0 <= nc < M and rooms[nr][nc]:
-            if not v[nr][nc]:
-                v[nr][nc] = 1
-            direct -= 1
-            if direct < 0:
-                direct = 3
-            q.append((r, c, direct))
-        elif 0 > nr or nr > N or 0 > nc or nc > M:
-            direct -= 1
-            if direct < 0:
-                direct = 3
-            q.append((r, c, direct))
-    pprint.pprint(v)
+        while chk == 1:
+            for i in ((direct+3)%4, (direct+2)%4, (direct+1)%4, direct):
+                nr = r + dr[i][0]
+                nc = c + dr[i][1]
 
-    return cnt
+                if not rooms[nr][nc]:
+                    chk = 0
+                    r, c, direct = nr, nc, i
+                    break
+
+            else:
+                sr = r - dr[direct][0]
+                sc = c - dr[direct][1]
+                if rooms[sr][sc] == 1:
+                    return cnt
+                else:
+                    r, c = sr, sc
+    return -1
 
 N, M = map(int, input().split())
 s, e, d = map(int, input().split())
 rooms = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
-v = [[0] * M for _ in range(N)]
+ans = bfs(s,e,d)
+print(ans)
 
-print(bfs(s, e, d))
+
 
